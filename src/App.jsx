@@ -3,9 +3,9 @@ import GlobalStyles from "./styles/GlobalStyles.js";
 import Button from "./ui/Button.jsx";
 import Input from "./ui/Input.jsx";
 import Heading from "./ui/Heading.jsx";
+import Row from "./ui/Row.jsx";
 
 const StyledApp = styled.main`
-  background-color: orangered;
   padding: 20px;
 `;
 
@@ -14,16 +14,35 @@ function App() {
     <>
       <GlobalStyles />
       <StyledApp>
-        <Heading as="h1">The wild oasis</Heading>
-        <Heading as="h2">Check in and out</Heading>
-        <Button type="button" onClick={() => alert("you are check in")}>
-          Check In
-        </Button>
-        <Button type="button" onClick={() => alert("you are check out")}>
-          Check Out
-        </Button>
-        <Heading as="h3">Forms</Heading>
-        <Input type="number" placeholder="Number of guests..." />
+        <Row type="horizontal">
+          <Heading as="h1">The wild oasis</Heading>
+          <div>
+            <Heading as="h2">Check in and out</Heading>
+            <Button
+              type="button"
+              variation="primary"
+              size="medium"
+              onClick={() => alert("you are check in")}
+            >
+              Check In
+            </Button>
+            <Button
+              type="button"
+              variation="secondary"
+              size="small"
+              onClick={() => alert("you are check out")}
+            >
+              Check Out
+            </Button>
+          </div>
+        </Row>
+
+        <Row type="vertical">
+          <Heading as="h3">Forms</Heading>
+          <form>
+            <Input type="number" placeholder="Number of guests..." />
+          </form>
+        </Row>
       </StyledApp>
     </>
   );
